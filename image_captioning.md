@@ -116,7 +116,7 @@ Image.open(img_name_vector[0])
 
 
     
-![png](output/output/output_10_1.png)
+![png](output/output_10_1.png)
     
 
 
@@ -672,7 +672,7 @@ plt.show()
 
 
     
-![png](output/output/output_44_0.png)
+![png](output/output_44_0.png)
     
 
 
@@ -755,7 +755,7 @@ plot_attention(image_path, result, attention_plot)
 
 
     
-![png](output/output/output_48_1.png)
+![png](output/output_48_1.png)
     
 
 
@@ -783,7 +783,7 @@ Image.open(image_path)
 
 
     
-![png](output/output/output_50_1.png)
+![png](output/output_50_1.png)
     
 
 
@@ -791,7 +791,7 @@ Image.open(image_path)
 
 
     
-![png](output/output/output_50_2.png)
+![png](output/output_50_2.png)
     
 
 
@@ -835,193 +835,4 @@ print('The BLEU Score is :', BLEU_score)
      15% (939 of 6001) |###                  | Elapsed Time: 0:06:22 ETA:   0:28:48
 
 
-    ---------------------------------------------------------------------------
-
-    KeyboardInterrupt                         Traceback (most recent call last)
-
-    <ipython-input-37-2cbd15db783e> in <module>()
-         19 
-         20   # Predict a caption for the image
-    ---> 21   result, _ = evaluate(image_path)
-         22   pred_caption = ' '.join(result).replace(' <end>', '')
-         23 
-
-
-    <ipython-input-33-da0f97639d55> in evaluate(image)
-         18         predictions, hidden, attention_weights = decoder(dec_input,
-         19                                                          features,
-    ---> 20                                                          hidden)
-         21 
-         22         attention_plot[i] = tf.reshape(attention_weights, (-1, )).numpy()
-
-
-    /usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py in error_handler(*args, **kwargs)
-         62     filtered_tb = None
-         63     try:
-    ---> 64       return fn(*args, **kwargs)
-         65     except Exception as e:  # pylint: disable=broad-except
-         66       filtered_tb = _process_traceback_frames(e.__traceback__)
-
-
-    /usr/local/lib/python3.7/dist-packages/keras/engine/base_layer.py in __call__(self, *args, **kwargs)
-       1081         with autocast_variable.enable_auto_cast_variables(
-       1082             self._compute_dtype_object):
-    -> 1083           outputs = call_fn(inputs, *args, **kwargs)
-       1084 
-       1085         if self._activity_regularizer:
-
-
-    /usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py in error_handler(*args, **kwargs)
-         90     bound_signature = None
-         91     try:
-    ---> 92       return fn(*args, **kwargs)
-         93     except Exception as e:  # pylint: disable=broad-except
-         94       if hasattr(e, '_keras_call_info_injected'):
-
-
-    <ipython-input-24-bbf62f809ddd> in call(self, x, features, hidden)
-         19 
-         20     # x shape after passing through embedding == (batch_size, 1, embedding_dim)
-    ---> 21     x = self.embedding(x)
-         22 
-         23     # x shape after concatenation == (batch_size, 1, embedding_dim + hidden_size)
-
-
-    /usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py in error_handler(*args, **kwargs)
-         62     filtered_tb = None
-         63     try:
-    ---> 64       return fn(*args, **kwargs)
-         65     except Exception as e:  # pylint: disable=broad-except
-         66       filtered_tb = _process_traceback_frames(e.__traceback__)
-
-
-    /usr/local/lib/python3.7/dist-packages/keras/engine/base_layer.py in __call__(self, *args, **kwargs)
-       1081         with autocast_variable.enable_auto_cast_variables(
-       1082             self._compute_dtype_object):
-    -> 1083           outputs = call_fn(inputs, *args, **kwargs)
-       1084 
-       1085         if self._activity_regularizer:
-
-
-    /usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py in error_handler(*args, **kwargs)
-         90     bound_signature = None
-         91     try:
-    ---> 92       return fn(*args, **kwargs)
-         93     except Exception as e:  # pylint: disable=broad-except
-         94       if hasattr(e, '_keras_call_info_injected'):
-
-
-    /usr/local/lib/python3.7/dist-packages/keras/layers/embeddings.py in call(self, inputs)
-        189     if dtype != 'int32' and dtype != 'int64':
-        190       inputs = tf.cast(inputs, 'int32')
-    --> 191     out = tf.nn.embedding_lookup(self.embeddings, inputs)
-        192     if self._dtype_policy.compute_dtype != self._dtype_policy.variable_dtype:
-        193       # Instead of casting the variable as in most layers, cast the output, as
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/util/traceback_utils.py in error_handler(*args, **kwargs)
-        148     filtered_tb = None
-        149     try:
-    --> 150       return fn(*args, **kwargs)
-        151     except Exception as e:
-        152       filtered_tb = _process_traceback_frames(e.__traceback__)
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/util/dispatch.py in op_dispatch_handler(*args, **kwargs)
-       1094       # Fallback dispatch system (dispatch v1):
-       1095       try:
-    -> 1096         return dispatch_target(*args, **kwargs)
-       1097       except (TypeError, ValueError):
-       1098         # Note: convert_to_eager_tensor currently raises a ValueError, not a
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/embedding_ops.py in embedding_lookup_v2(params, ids, max_norm, name)
-        405     ValueError: If `params` is empty.
-        406   """
-    --> 407   return embedding_lookup(params, ids, "div", name, max_norm=max_norm)
-        408 
-        409 
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/util/traceback_utils.py in error_handler(*args, **kwargs)
-        148     filtered_tb = None
-        149     try:
-    --> 150       return fn(*args, **kwargs)
-        151     except Exception as e:
-        152       filtered_tb = _process_traceback_frames(e.__traceback__)
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/util/dispatch.py in op_dispatch_handler(*args, **kwargs)
-       1094       # Fallback dispatch system (dispatch v1):
-       1095       try:
-    -> 1096         return dispatch_target(*args, **kwargs)
-       1097       except (TypeError, ValueError):
-       1098         # Note: convert_to_eager_tensor currently raises a ValueError, not a
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/embedding_ops.py in embedding_lookup(params, ids, partition_strategy, name, validate_indices, max_norm)
-        339       name=name,
-        340       max_norm=max_norm,
-    --> 341       transform_fn=None)
-        342 
-        343 
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/embedding_ops.py in _embedding_lookup_and_transform(params, ids, partition_strategy, name, max_norm, transform_fn)
-        147       with _colocate_with(params[0]):
-        148         result = _clip(
-    --> 149             array_ops.gather(params[0], ids, name=name), ids, max_norm)
-        150         if transform_fn:
-        151           result = transform_fn(result)
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/util/traceback_utils.py in error_handler(*args, **kwargs)
-        148     filtered_tb = None
-        149     try:
-    --> 150       return fn(*args, **kwargs)
-        151     except Exception as e:
-        152       filtered_tb = _process_traceback_frames(e.__traceback__)
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/util/dispatch.py in op_dispatch_handler(*args, **kwargs)
-       1094       # Fallback dispatch system (dispatch v1):
-       1095       try:
-    -> 1096         return dispatch_target(*args, **kwargs)
-       1097       except (TypeError, ValueError):
-       1098         # Note: convert_to_eager_tensor currently raises a ValueError, not a
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/util/deprecation.py in new_func(*args, **kwargs)
-        550                 'in a future version' if date is None else ('after %s' % date),
-        551                 instructions)
-    --> 552       return func(*args, **kwargs)
-        553 
-        554     doc = _add_deprecated_arg_notice_to_docstring(
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/array_ops.py in gather(***failed resolving arguments***)
-       5126     # TODO(apassos) find a less bad way of detecting resource variables
-       5127     # without introducing a circular dependency.
-    -> 5128     return params.sparse_read(indices, name=name)
-       5129   except AttributeError:
-       5130     return gen_array_ops.gather_v2(params, indices, axis, name=name)
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/resource_variable_ops.py in sparse_read(self, indices, name)
-        728       variable_accessed(self)
-        729       value = gen_resource_variable_ops.resource_gather(
-    --> 730           self.handle, indices, dtype=self._dtype, name=name)
-        731 
-        732       if self._dtype == dtypes.variant:
-
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/gen_resource_variable_ops.py in resource_gather(resource, indices, dtype, batch_dims, validate_indices, name)
-        544       _result = pywrap_tfe.TFE_Py_FastPathExecute(
-        545         _ctx, "ResourceGather", name, resource, indices, "batch_dims",
-    --> 546         batch_dims, "validate_indices", validate_indices, "dtype", dtype)
-        547       return _result
-        548     except _core._NotOkStatusException as e:
-
-
-    KeyboardInterrupt: 
-
+```
